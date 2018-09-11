@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>news</display-name>
+  
+  <context-param>
+		<param-name>drive</param-name>
+		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+	</context-param>
+  	<context-param>
+		<param-name>url</param-name>
+		<param-value>jdbc:mysql://localhost:3306/newsdb?characterEncoding=utf-8&amp;serverTimezone=UTC&amp;useSSL=false</param-value>
+	</context-param>
+   	<context-param>
+		<param-name>userName</param-name>
+		<param-value>root</param-value>
+	</context-param>
+  	<context-param>
+		<param-name>password</param-name>
+		<param-value>1756332466</param-value>
+	</context-param>
+	
+	<filter>
+	<filter-name>HeadFilter</filter-name>
+	<filter-class>filter.HeadFilter</filter-class>
+  </filter>
+  <filter-mapping>
+	<filter-name>HeadFilter</filter-name>
+	<url-pattern>/news/*</url-pattern>
+	<url-pattern>/news/*</url-pattern>
+	<url-pattern>/comment/*</url-pattern>
+	<url-pattern>/login.jsp</url-pattern>
+	<url-pattern>/registe.jsp</url-pattern>
+	<url-pattern>/manageMain.jsp</url-pattern>
+	<url-pattern>/index.jsp</url-pattern>
+	<dispatcher>FORWARD</dispatcher>  
+	<dispatcher>REQUEST</dispatcher>  
+  </filter-mapping> 
+  
+  <filter>
+	<filter-name>AuthorityFilter</filter-name>
+	<filter-class>filter.AuthorityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+	<filter-name>AuthorityFilter</filter-name>	
+	<url-pattern>/news/manage/*</url-pattern>
+	<url-pattern>/manager/*</url-pattern>
+	<url-pattern>/user/manage/*</url-pattern>
+	<servlet-name>UserServlet</servlet-name>
+	<servlet-name>NewsServlet</servlet-name>
+	<servlet-name>CommentServlet</servlet-name>
+	<dispatcher>FORWARD</dispatcher>  
+	<dispatcher>REQUEST</dispatcher>  
+  </filter-mapping> 
+	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+	<session-timeout>100</session-timeout>
+ </session-config>
+</web-app>
