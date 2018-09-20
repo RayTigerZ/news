@@ -10,7 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>注册页面</title>
+    
     <script type="text/javascript">
+    
  	 function registeSubmit()
   	{
   		var userName=document.getElementById("userName").value;
@@ -24,6 +26,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		else return true;
   
  	 }
+ 	 $(document).ready(function() {
+ 	 	$("#checkImg").click(function(){//为id是checkImg的标签绑定  鼠标单击事件  的处理函数
+				//$(selector).attr(attribute,value)  设置被选元素的属性值
+				//网址后加如一个随机值rand，表示了不同的网址，防止缓存导致的图片内容不变
+				$("#checkImg").attr("src","/news/servlet/ImageCheckCodeServlet?rand="+Math.random());
+  			});
+ 	 });
   </script> 
 	
 
@@ -61,6 +70,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td align="left"><input type="password" name="password2" id="password2" >
 					<br><span id="passwordspan2"  style="color: #E7060A;"></span></td>
 			</tr>
+			<tr height="30">
+		      <td align="right">图形验证码：</td>
+		      <td valign="middle"><input type="text" name="checkCode" id="checkCode">
+		      <img id="checkImg"  src="/news/servlet/ImageCheckCodeServlet?rand=-1" class="hand" /></td>
+		    </tr>	
 			<tr height="30">
 				<td></td><td><input type="submit" value="      注     册     "/></td>
 			</tr>

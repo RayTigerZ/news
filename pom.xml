@@ -6,6 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>news Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -74,6 +75,13 @@
 	    <artifactId>ueditor</artifactId>
 	    <version>1.1.2</version>
 	</dependency>
+		<!-- https://mvnrepository.com/artifact/com.octo.captcha/jcaptcha -->
+	<dependency>
+	    <groupId>com.octo.captcha</groupId>
+	    <artifactId>jcaptcha</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	
 	
 
   </dependencies>
